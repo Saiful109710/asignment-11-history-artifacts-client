@@ -18,6 +18,8 @@ const Register = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const photo = e.target.photo.value
+        const confirmPassword = e.target.confirmPassword.value;
 
         createUser(email,password)
         .then(result=>{
@@ -68,6 +70,18 @@ const Register = () => {
           </div>
           <div className="form-control">
             <label className="label">
+              <span className="label-text">Photo Url</span>
+            </label>
+            <input
+              type="text"
+              name='photo'
+              placeholder="Photo Url"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
@@ -78,6 +92,7 @@ const Register = () => {
               required
             />
           </div>
+
           <div className="form-control">
             <label className="label">
               <span className="label-text">Password</span>
@@ -85,6 +100,19 @@ const Register = () => {
             <input
               type="password"
               name='password'
+              placeholder="password"
+              className="input input-bordered"
+              required
+            />
+         
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Confirm Password</span>
+            </label>
+            <input
+              type="password"
+              name='confirmPassword'
               placeholder="password"
               className="input input-bordered"
               required

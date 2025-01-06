@@ -40,12 +40,12 @@ const AuthProvider = ({children}) => {
                 if(currentUser?.email){
                     setUser(currentUser)
                     setLoading(false)
-                    console.log(currentUser)
+                    console.log("Current User",currentUser)
 
                 }else{
                     setUser(currentUser)
                     setLoading(false)
-                    console.log(currentUser)
+                    console.log("current user",currentUser)
                 }
             })
 
