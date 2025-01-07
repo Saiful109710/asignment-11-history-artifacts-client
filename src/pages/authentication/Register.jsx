@@ -41,7 +41,7 @@ const Register = () => {
         
     }
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 py-5 max-w-5xl mx-auto">
     <div>
         <Lottie animationData={registrationLottie}></Lottie>
     </div>

@@ -1,0 +1,63 @@
+[
+    {
+      "artifactName": "Rosetta Stone",
+      "artifactImage": "https://upload.wikimedia.org/wikipedia/commons/2/20/Rosetta_Stone.JPG",
+      "artifactType": "Documents",
+      "historicalContext": "The Rosetta Stone is a granodiorite stele inscribed with three versions of a decree issued in Memphis, Egypt, in 196 BC during the Ptolemaic dynasty on behalf of King Ptolemy V. The artifact provided the key to modern understanding of Egyptian hieroglyphs.",
+      "createdAt": "196 BC",
+      "discoveredAt": "1799",
+      "discoveredBy": "Pierre-François Bouchard",
+      "presentLocation": "The British Museum, London, UK",
+      "adderName": "John Doe",
+      "adderEmail": "johndoe@example.com"
+    },
+    {
+      "artifactName": "Antikythera Mechanism",
+      "artifactImage": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Antikythera_mechanism_01.jpg",
+      "artifactType": "Tools",
+      "historicalContext": "The Antikythera Mechanism is an ancient Greek analog computer and orrery used to predict astronomical positions and eclipses for calendar and astrological purposes decades in advance. It is considered the world's first known computer.",
+      "createdAt": "c. 87 BC",
+      "discoveredAt": "1901",
+      "discoveredBy": "Elias Stadiatos",
+      "presentLocation": "National Archaeological Museum, Athens, Greece",
+      "adderName": "Jane Smith",
+      "adderEmail": "janesmith@example.com"
+    },
+    {
+      "artifactName": "Terracotta Army",
+      "artifactImage": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Xian_tomb_soilders.JPG",
+      "artifactType": "Writings",
+      "historicalContext": "The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. It is a form of funerary art buried with the emperor in 210–209 BC to protect him in the afterlife.",
+      "createdAt": "210 BC",
+      "discoveredAt": "1974",
+      "discoveredBy": "Farmers digging a well",
+      "presentLocation": "Lintong District, Xi'an, Shaanxi province, China",
+      "adderName": "Emily Carter",
+      "adderEmail": "emilycarter@example.com"
+    },
+    {
+      "artifactName": "Dead Sea Scrolls",
+      "artifactImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Dead_Sea_Scroll_4Q7.jpg",
+      "artifactType": "Documents",
+      "historicalContext": "The Dead Sea Scrolls are ancient Jewish religious manuscripts discovered in the Qumran Caves near the Dead Sea. They are considered the oldest surviving manuscripts of the Hebrew Bible, dating back to the 3rd century BCE.",
+      "createdAt": "3rd century BCE",
+      "discoveredAt": "1947",
+      "discoveredBy": "Muhammad edh-Dhib (Bedouin shepherd)",
+      "presentLocation": "The Israel Museum, Jerusalem, Israel",
+      "adderName": "Michael Brown",
+      "adderEmail": "michaelbrown@example.com"
+    },
+    {
+      "artifactName": "Venus of Willendorf",
+      "artifactImage": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Venus_von_Willendorf_01.jpg",
+      "artifactType": "Art",
+      "historicalContext": "The Venus of Willendorf is an 11.1-centimeter-tall Venus figurine estimated to have been created around 28,000 to 25,000 BCE. It is one of the most famous examples of prehistoric art.",
+      "createdAt": "28,000–25,000 BCE",
+      "discoveredAt": "1908",
+      "discoveredBy": "Josef Szombathy",
+      "presentLocation": "Natural History Museum, Vienna, Austria",
+      "adderName": "Alice Johnson",
+      "adderEmail": "alicejohnson@example.com"
+    }
+  ]
+  
