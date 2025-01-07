@@ -2,12 +2,15 @@ import React from "react";
 import loginLottie from "../../assets/lottie/loginLottie.json";
 import Lottie from "lottie-react";
 import SocialLogin from "../../components/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
 
     const {signIn} = useAuth();
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
 
 
     const handleSubmit = (e)=>{
@@ -17,7 +20,10 @@ const Login = () => {
         const password= e.target.password.value;
         console.log(email,password)
         signIn(email,password)
-        .then(result=>console.log(result))
+        .then(result=>{
+          console.log(result)
+          navigate(location?.state || '/')
+        })
         .catch(err=>{
             console.log(err.message)
         })

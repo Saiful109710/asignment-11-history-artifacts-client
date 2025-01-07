@@ -9,7 +9,7 @@ const FeaturedArtifacts = () => {
 
     useEffect(()=>{
             const fetchArtifactsData =()=>{
-            axios.get('http://localhost:2000/allArtifacts')
+            axios.get('http://localhost:2000/featuredArtifacts')
             .then(res=>setArtifacts(res.data))
             .catch(err=>{
                 console.log(err.message)

@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import FeaturedArtifacts from '../components/FeaturedArtifacts'
+import HistoricalTimeline from '../components/HistoricalTimeline'
 
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
     <div>
         <Banner></Banner>
         <FeaturedArtifacts></FeaturedArtifacts>
+        <HistoricalTimeline></HistoricalTimeline>
     </div>
   )
 }
