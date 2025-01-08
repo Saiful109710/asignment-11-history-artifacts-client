@@ -7,11 +7,12 @@ import "swiper/css/pagination";
 
 const artifacts = [
   {
-    artifactName: "Rosetta Stone",
-    artifactImage: "https://i.ibb.co/8jQydTQ/Rosetta-Stone.jpg",
+    artifactName: "Terracotta Army",
+    artifactImage: "https://i.ibb.co/998y4Q7/teracotta-Army.jpg",
     historicalContext:
-      "The Rosetta Stone is a granodiorite stele inscribed with three versions of a decree issued in Memphis, Egypt, in 196 BC during the Ptolemaic dynasty on behalf of King Ptolemy V.",
+      "The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. It was buried with the emperor to protect him in the afterlife.",
   },
+ 
   {
     artifactName: "Antikythera Mechanism",
     artifactImage: "https://i.ibb.co/p4YZ0dL/antikythera-mechanism.jpg",
@@ -19,16 +20,19 @@ const artifacts = [
       "The Antikythera Mechanism is an ancient Greek analog computer and orrery used to predict astronomical positions and eclipses for calendar and astrological purposes decades in advance.",
   },
   {
-    artifactName: "Terracotta Army",
-    artifactImage: "https://i.ibb.co/998y4Q7/teracotta-Army.jpg",
+    artifactName: "Rosetta Stone",
+    artifactImage: "https://i.ibb.co.com/c34QD7Q/Rosetta-Stone11.jpg",
     historicalContext:
-      "The Terracotta Army is a collection of terracotta sculptures depicting the armies of Qin Shi Huang, the first Emperor of China. It was buried with the emperor to protect him in the afterlife.",
+      "The Rosetta Stone is a granodiorite stele inscribed with three versions of a decree issued in Memphis, Egypt, in 196 BC during the Ptolemaic dynasty on behalf of King Ptolemy V.",
   },
+
 ];
 
 const ArtifactSlider = () => {
   return (
-    <div className="w-full py-5 bg-sky-50">
+
+
+    <div className="w-full py-5 ">
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={30}

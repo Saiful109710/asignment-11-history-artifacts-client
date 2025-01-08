@@ -3,14 +3,16 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import ArtifactCard from "../components/ArtifactCard";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const LikedArtifacts = () => {
+  const axiosSecure = useAxiosSecure()
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState([]);
 
   const fetchArtifactsData = async () => {
-    const { data } = await axios.get(
-      `http://localhost:2000/likedArtifacts/${user.uid}`
+    const { data } = await axiosSecure.get(
+      `/likedArtifacts/${user.uid}`
     );
     console.log(data);
     setArtifacts(data);

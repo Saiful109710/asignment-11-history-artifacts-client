@@ -39,7 +39,7 @@ const AddArtifactForm = () => {
     console.log(formData)
 
     try{
-     const {data} =  await axios.post('http://localhost:2000/allArtifacts',formData)
+     const {data} =  await axios.post('https://history-artifacts-server.vercel.app/allArtifacts',formData)
      console.log(data)
      if(data.insertedId){
         toast.success('Artifacts added successfully')

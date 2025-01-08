@@ -6,19 +6,30 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import UpdateArtifactsModal from "../components/UpdateArtifactsModal";
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyArtifacts = () => {
-  const { user } = useAuth();
+  const { user,setLoading,loading } = useAuth();
+  const axiosSecure = useAxiosSecure()
   const [artifacts, setArtifacts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedArtifact,setSelectedArtifact] = useState(null)
+  console.log(isModalOpen)
   console.log(artifacts);
 
   const fetchArtifactsData = async () => {
-    const { data } = await axios.get(
-      `http://localhost:2000/myArtifacts/${user?.email}`
+    
+   try{
+    const { data } = await axiosSecure.get(
+      `/myArtifacts/${user?.email}`
     );
 
     setArtifacts(data);
+    setLoading(false)
+   }catch(err){
+      console.log(err.message)
+      toast.error(err.message)
+   }
   };
 
   useEffect(() => {
@@ -26,7 +37,7 @@ const MyArtifacts = () => {
   }, [user?.email]);
 
   const onClose = () => {
-    setIsModalOpen(false);
+    setSelectedArtifact(null);
   };
 
   const handleDelete = (id) => {
@@ -41,8 +52,8 @@ const MyArtifacts = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          const { data } = await axios.delete(
-            `http://localhost:2000/myArtifacts/${id}`
+          const { data } = await axiosSecure.delete(
+            `/myArtifacts/${id}`
           );
           console.log(data);
           if (data.deletedCount > 0) {
@@ -73,7 +84,7 @@ const MyArtifacts = () => {
           <ArtifactCard key={artifact._id} artifact={artifact}>
             <div className="flex justify-between items-center pt-5">
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setSelectedArtifact(artifact)}
                 className="btn bg-sky-700 text-white px-6 py-2 rounded-lg shadow-md hover:bg-sky-800 transition duration-300 transform hover:scale-105"
               >
                 Update
@@ -84,17 +95,19 @@ const MyArtifacts = () => {
               >
                 Delete
               </button>
-              {isModalOpen && (
-                <UpdateArtifactsModal
-                  fetchArtifactsData={fetchArtifactsData}
-                  onClose={onClose}
-                  artifact={artifact}
-                ></UpdateArtifactsModal>
-              )}
+             
             </div>
           </ArtifactCard>
         ))}
       </div>
+
+      {selectedArtifact && (
+                <UpdateArtifactsModal
+                  fetchArtifactsData={fetchArtifactsData}
+                  onClose={onClose}
+                  artifact={selectedArtifact}
+                ></UpdateArtifactsModal>
+              )}
     </div>
   );
 };

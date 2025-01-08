@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const UpdateArtifactsModal = ({ onClose, artifact ,fetchArtifactsData}) => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure()
   const initialFormData = {
     artifactName: artifact.artifactName || "",
     artifactType: artifact.artifactType || "",
@@ -29,7 +31,7 @@ const UpdateArtifactsModal = ({ onClose, artifact ,fetchArtifactsData}) => {
     e.preventDefault();
     
     try{
-       const {data} = await axios.patch(`http://localhost:2000/myArtifacts/${artifact._id}`,formData)
+       const {data} = await axiosSecure.patch(`/myArtifacts/${artifact._id}`,formData)
         console.log(data)
         
         if(data.modifiedCount>0){
@@ -47,7 +49,7 @@ const UpdateArtifactsModal = ({ onClose, artifact ,fetchArtifactsData}) => {
   };
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50 overflow-y-auto">
-    <div className="relative bg-white p-6 md:p-8 rounded-lg shadow-lg w-full max-w-4xl mx-4 sm:mx-8 md:mx-auto h-auto md:h-[700px] overflow-auto">
+    <div className=" bg-white p-6 md:p-8 rounded-lg shadow-lg w-full max-w-4xl mx-4 sm:mx-8 md:mx-auto h-auto md:h-[700px] overflow-auto">
       <button
         onClick={onClose}
         className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -263,13 +265,14 @@ const UpdateArtifactsModal = ({ onClose, artifact ,fetchArtifactsData}) => {
         </div>
 
         {/* Submit Button */}
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-6 gap-5">
           <button
             type="submit"
             className="bg-sky-700 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg shadow-md hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm md:text-base"
           >
-            Submit Artifact
+            Update Artifact
           </button>
+          <button className="btn bg-red-600 text-white" onClick={onClose}>Cancel</button>
         </div>
       </form>
     </div>

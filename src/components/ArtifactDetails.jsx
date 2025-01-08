@@ -19,7 +19,7 @@ const ArtifactDetails = () => {
     const userData ={userId:user.uid} 
 
     const fetchArtifactData = async()=>{
-      await axios.get(`http://localhost:2000/artifactDetails/${id}`)
+      await axios.get(`https://history-artifacts-server.vercel.app/artifactDetails/${id}`)
       .then(res=>setArtifact(res.data))
       
       
@@ -39,7 +39,7 @@ const ArtifactDetails = () => {
       
 
       try{
-          const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=like`,userData)
+          const {data} = await axios.patch(`https://history-artifacts-server.vercel.app/allArtifacts/${id}?likeStatus=like`,userData)
           console.log(data)
           fetchArtifactData()
           
@@ -55,11 +55,12 @@ const ArtifactDetails = () => {
     const handleDisLike = async(id)=>{
       
       try{
-          const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=dislike`,userData)
+          const {data} = await axios.patch(`https://history-artifacts-server.vercel.app/allArtifacts/${id}?likeStatus=dislike`,userData)
           console.log(data)
           fetchArtifactData()
       }catch(err){
-        toast.error(err.response.data.message)
+        console.log(err)
+        toast.error(err?.response?.data?.message)
       }
       setLikeStatus(true)
     }

@@ -52,26 +52,31 @@ const HistoricalTimeline = () => {
     },
   ];
 
+  
+
+
+
+
   const categories = [
     {
       name: "Ancient Civilizations",
       description: "Explore artifacts from early human societies like Mesopotamia, Egypt, and Indus Valley.",
-      imgSrc: "https://via.placeholder.com/150", // Replace with relevant image URL
+      imgSrc: "https://i.ibb.co.com/C6HmWhX/ancient-Civilization.jpg", // Replace with relevant image URL
     },
     {
       name: "Technological Inventions",
       description: "Discover artifacts that represent breakthroughs in technology and science.",
-      imgSrc: "https://via.placeholder.com/150", // Replace with relevant image URL
+      imgSrc: "https://i.ibb.co.com/2cm6Kfq/technology-Invention.jpg", // Replace with relevant image URL
     },
     {
       name: "Cultural Artifacts",
       description: "Dive into artifacts that reflect cultural traditions and artistic achievements.",
-      imgSrc: "https://via.placeholder.com/150", // Replace with relevant image URL
+      imgSrc: "https://i.ibb.co.com/yFmptB7/cultural-Artifacts.jpg", // Replace with relevant image URL
     },
     {
       name: "Medieval Artifacts",
       description: "Learn about artifacts from the medieval period, including weapons, art, and more.",
-      imgSrc: "https://via.placeholder.com/150", // Replace with relevant image URL
+      imgSrc: "https://i.ibb.co.com/nMXgPbF/medevial-Artifacts.jpg", // Replace with relevant image URL
     },
   ];
 
@@ -106,7 +111,7 @@ const HistoricalTimeline = () => {
   return (
     <div>
       {/* Historical Timeline Section */}
-      <section className="bg-sky-50 py-10">
+      <section className="bg-sky-50 py-10 rounded-xl">
         <h2 className="text-4xl font-bold text-center text-sky-700 mb-12">
           Historical Timeline
         </h2>
@@ -140,7 +145,7 @@ const HistoricalTimeline = () => {
       </section>
 
       {/* Artifact Categories Section */}
-      <section className="bg-sky-100 py-10">
+      <section className=" py-10">
         <h2 className="text-4xl font-bold text-center text-sky-700 mb-12">
           Artifact Categories
         </h2>
@@ -167,7 +172,7 @@ const HistoricalTimeline = () => {
       </section>
 
       {/* Historical Quotes Section */}
-      <section className="bg-sky-50 py-10">
+      <section className=" py-10">
         <h2 className="text-4xl font-bold text-center text-sky-700 mb-12">
           Discover Historical Quotes
         </h2>

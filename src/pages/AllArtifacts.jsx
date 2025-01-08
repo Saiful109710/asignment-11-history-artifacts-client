@@ -2,27 +2,39 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ArtifactCard from "../components/ArtifactCard";
 import { Helmet } from "react-helmet-async";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const AllArtifacts = () => {
+  const {loading,setLoading} = useAuth()
   const [artifacts, setArtifacts] = useState([]);
   const [filter,setFilter] =useState('')
   const [search,setSearch] = useState('')
   console.log(search)
 
+  const fetchArtifactsData = async () => {
+    setLoading(true)
+   try{
+    const {data} =  await axios.get(`https://history-artifacts-server.vercel.app/allArtifacts?filter=${filter}&search=${search}`)
+    setArtifacts(data)
+    setLoading(false)
+   }catch(err){
+      toast.error(err.message)
+      setLoading(false)
+   }
+      
+  };
+
   useEffect(() => {
-    const fetchArtifactsData = async () => {
-      await axios
-        .get(`http://localhost:2000/allArtifacts?filter=${filter}&search=${search}`)
-        .then((res) => {
-          setArtifacts(res.data);
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    };
+    
 
     fetchArtifactsData()
   }, [filter,search]);
+
+  
+
+  
 
   return (
     <div>

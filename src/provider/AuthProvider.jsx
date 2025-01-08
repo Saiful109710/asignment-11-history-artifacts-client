@@ -41,7 +41,7 @@ const AuthProvider = ({children}) => {
                 if(currentUser?.email){
                     setUser(currentUser)
                     try{
-                        const {data} = await axios.post('http://localhost:2000/jwt',{email:currentUser.email},{withCredentials:true})
+                        const {data} = await axios.post('https://history-artifacts-server.vercel.app/jwt',{email:currentUser.email},{withCredentials:true})
                     console.log(data)
                     }catch(err){
                         console.log(err)
@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
                 }else{
                     setUser(currentUser)
                     try{
-                        const {data} = await axios.get('http://localhost:2000/logout',{withCredentials:true})
+                        const {data} = await axios.get('https://history-artifacts-server.vercel.app/logout',{withCredentials:true})
                         console.log(data)
                     }catch(err){
                         console.log(err)
