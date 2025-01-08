@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 
 const ArtifactCard = ({ artifact, children }) => {
@@ -6,7 +7,8 @@ const ArtifactCard = ({ artifact, children }) => {
   const { _id, artifactImage, historicalContext, artifactName, likeCount } =
     artifact || {};
   return (
-    <div className="p-5 rounded-2xl shadow-md bg-white hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+    <Fade cascade>
+      <div className="p-5 rounded-2xl shadow-md bg-white hover:shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
       {/* Image Section */}
       <div className="h-[300px] w-full overflow-hidden rounded-2xl">
         <img
@@ -51,6 +53,7 @@ const ArtifactCard = ({ artifact, children }) => {
         </div>
       )}
     </div>
+    </Fade>
   );
 };
 

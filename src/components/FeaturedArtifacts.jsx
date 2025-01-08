@@ -5,6 +5,7 @@ import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import LoadingSpinner from "./LoadingSpinner";
 import { Link } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const FeaturedArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
@@ -33,6 +34,7 @@ const FeaturedArtifacts = () => {
 
   return (
     <div>
+      <Fade cascade>
       <div className="py-10">
         <h2 className="text-3xl font-bold text-center">Featured Artifacts</h2>
 
@@ -45,6 +47,7 @@ const FeaturedArtifacts = () => {
             <Link to='/allArtifacts'><button className="bg-gradient-to-r from-sky-700 to-sky-500 text-white px-5 py-2 rounded-lg shadow-lg hover:opacity-90 hover:shadow-xl transition duration-300">See All Artifacts</button></Link>
         </div>
       </div>
+      </Fade>
     </div>
   );
 };
