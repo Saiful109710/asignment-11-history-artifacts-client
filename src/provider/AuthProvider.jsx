@@ -52,10 +52,10 @@ const AuthProvider = ({children}) => {
                 }else{
                     setUser(currentUser)
                     try{
-                        const {data} = await axios.get('https://history-artifacts-server.vercel.app/logout',{withCredentials:true})
+                        const {data} = await axios.post('https://history-artifacts-server.vercel.app/logout',{withCredentials:true})
                         console.log(data)
                     }catch(err){
-                        console.log(err)
+                        console.log(err.message)
                     }
                     setLoading(false)
                     console.log("current user",currentUser)

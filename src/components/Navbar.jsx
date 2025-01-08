@@ -1,6 +1,7 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import { Link, NavLink } from "react-router-dom";
+import logo from '../assets/images/logoHistory.png'
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -56,7 +57,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">History Artifacts</a>
+       <img className="w-[70px]" src={logo} alt="" /> <a className="text-4xl font-bold bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 bg-clip-text text-transparent">History Artifacts</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>

@@ -5,6 +5,7 @@ import SocialLogin from "../../components/SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -23,10 +24,12 @@ const Login = () => {
         signIn(email,password)
         .then(result=>{
           console.log(result)
+          toast.success('Login Successfully ')
           navigate(location?.state || '/')
         })
         .catch(err=>{
             console.log(err.message)
+            toast.error(err.message)
         })
 
 
@@ -76,7 +79,7 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-sky-500">Login</button>
+              <button className="bg-gradient-to-r from-sky-700 to-sky-500 text-white btn rounded-lg shadow-lg hover:opacity-90 hover:shadow-xl transition duration-300">Login</button>
             </div>
           </form>
           <div className="divider">OR</div>
