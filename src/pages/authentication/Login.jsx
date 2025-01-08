@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import SocialLogin from "../../components/SocialLogin";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
@@ -32,6 +33,9 @@ const Login = () => {
     }
   return (
     <div className="grid grid-cols-2">
+      <Helmet>
+              <title>Login | History Artifact</title>
+            </Helmet>
       <div>
         <Lottie animationData={loginLottie}></Lottie>
       </div>

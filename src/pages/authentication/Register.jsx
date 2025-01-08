@@ -5,6 +5,7 @@ import Lottie from 'lottie-react'
 import registrationLottie from '../../assets/lottie/registrationLottie.json'
 import useAuth from '../../hooks/useAuth'
 import toast from 'react-hot-toast'
+import { Helmet } from 'react-helmet-async'
 
 const Register = () => {
 
@@ -42,6 +43,9 @@ const Register = () => {
     }
   return (
     <div className="grid grid-cols-2 py-5 max-w-5xl mx-auto">
+      <Helmet>
+              <title>Register | History Artifact</title>
+            </Helmet>
     <div>
         <Lottie animationData={registrationLottie}></Lottie>
     </div>

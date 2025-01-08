@@ -18,13 +18,15 @@ const ArtifactDetails = () => {
 
     const userData ={userId:user.uid} 
 
+    const fetchArtifactData = async()=>{
+      await axios.get(`http://localhost:2000/artifactDetails/${id}`)
+      .then(res=>setArtifact(res.data))
+      
+      
+}
+
     useEffect(()=>{
-        const fetchArtifactData = async()=>{
-                await axios.get(`http://localhost:2000/artifactDetails/${id}`)
-                .then(res=>setArtifact(res.data))
-                
-                
-        }
+       
 
         fetchArtifactData();
     },[])
@@ -39,6 +41,7 @@ const ArtifactDetails = () => {
       try{
           const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=like`,userData)
           console.log(data)
+          fetchArtifactData()
           
       }catch(err){
         console.log(err)
@@ -54,6 +57,7 @@ const ArtifactDetails = () => {
       try{
           const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=dislike`,userData)
           console.log(data)
+          fetchArtifactData()
       }catch(err){
         toast.error(err.response.data.message)
       }
@@ -121,7 +125,10 @@ const ArtifactDetails = () => {
             </button>)
           }
           <p className="text-lg font-semibold text-gray-700">
-            Likes: 
+            Likes: {artifact.likeCount}
+          </p>
+          <p className="text-lg font-semibold text-gray-700">
+            DisLikes: {artifact.disLikedCount}
           </p>
         </div>
       </div>

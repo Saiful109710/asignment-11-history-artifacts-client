@@ -5,12 +5,13 @@ import ArtifactCard from "../components/ArtifactCard";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import UpdateArtifactsModal from "../components/UpdateArtifactsModal";
+import { Helmet } from "react-helmet-async";
 
 const MyArtifacts = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(artifacts)
+  console.log(artifacts);
 
   const fetchArtifactsData = async () => {
     const { data } = await axios.get(
@@ -24,11 +25,9 @@ const MyArtifacts = () => {
     fetchArtifactsData();
   }, [user?.email]);
 
-  
-
-  const onClose = ()=>{
-    setIsModalOpen(false)
-  }
+  const onClose = () => {
+    setIsModalOpen(false);
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -63,6 +62,9 @@ const MyArtifacts = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Artifact | History Artifact</title>
+      </Helmet>
       <h2 className="text-center text-sky-600 text-3xl font-bold">
         My Artifacts
       </h2>
@@ -72,17 +74,23 @@ const MyArtifacts = () => {
             <div className="flex justify-between items-center pt-5">
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="btn bg-sky-700 text-white"
+                className="btn bg-sky-700 text-white px-6 py-2 rounded-lg shadow-md hover:bg-sky-800 transition duration-300 transform hover:scale-105"
               >
                 Update
               </button>
               <button
                 onClick={() => handleDelete(artifact._id)}
-                className="btn bg-red-600 text-white"
+                className="btn bg-red-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-300 transform hover:scale-105"
               >
                 Delete
               </button>
-              {isModalOpen && <UpdateArtifactsModal fetchArtifactsData={fetchArtifactsData}  onClose={onClose}  artifact={artifact}></UpdateArtifactsModal>}
+              {isModalOpen && (
+                <UpdateArtifactsModal
+                  fetchArtifactsData={fetchArtifactsData}
+                  onClose={onClose}
+                  artifact={artifact}
+                ></UpdateArtifactsModal>
+              )}
             </div>
           </ArtifactCard>
         ))}
