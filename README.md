@@ -13,11 +13,11 @@ History Artifacts Tracker is a web application designed to explore and preserve 
 
 ## Technologies Used  
 
-- **Backend**: Node.js, Express.js  
+ - **Backend**: Node.js, Express.js  
 - **Database**: MongoDB (using MongoDB Atlas)  
 - **Authentication**: JSON Web Token (JWT) and cookies  
 - **Frontend**: React.js (assumed based on project setup)  
-- **Deployment**: Netlify (Frontend) & Render/Heroku (Backend)  
+- **Deployment**: Netlify (Frontend) & Render/Heroku (Backend) 
 
 ## Github Repo Link
 https://github.com/Saiful109710/asignment-11-history-artifacts-client
