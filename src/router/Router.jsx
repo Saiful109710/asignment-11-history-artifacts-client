@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/artifactDetails/:id',
-                element:<PrivateRoute></PrivateRoute>
+                element:<PrivateRoute><ArtifactDetails></ArtifactDetails></PrivateRoute>
             },
             {
                 path:'/allArtifacts',
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/myArtifacts',
-                element:<PrivateRoute></PrivateRoute>
+                element:<PrivateRoute><MyArtifacts></MyArtifacts></PrivateRoute>
             },
             {
                 path:'/likedArtifacts',

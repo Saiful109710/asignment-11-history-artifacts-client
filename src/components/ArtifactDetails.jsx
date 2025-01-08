@@ -1,11 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
+import useAuth from '../hooks/useAuth'
+import { AiFillLike } from "react-icons/ai";
+import { AiFillDislike } from "react-icons/ai";
+
+
 
 const ArtifactDetails = () => {
     const {id} = useParams()
+    const {user} = useAuth()
+    const [likeStatus,setLikeStatus] = useState(true)
 
     const [artifact,setArtifact] = useState({})
+    console.log(artifact)
+
+    const userData ={userId:user.uid} 
 
     useEffect(()=>{
         const fetchArtifactData = async()=>{
@@ -18,11 +29,36 @@ const ArtifactDetails = () => {
         fetchArtifactData();
     },[])
 
-    const [likes, setLikes] = useState(0);
+    
 
-    const handleLike = () => {
-      setLikes(likes + 1);
+    const handleLike = async(id) => {
+      console.log(id)
+      console.log(user.uid)
+      
+
+      try{
+          const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=like`,userData)
+          console.log(data)
+          
+      }catch(err){
+        console.log(err)
+        toast.error(err.response.data.message)
+      }
+
+      setLikeStatus(false);
+      
     };
+
+    const handleDisLike = async(id)=>{
+      
+      try{
+          const {data} = await axios.patch(`http://localhost:2000/allArtifacts/${id}?likeStatus=dislike`,userData)
+          console.log(data)
+      }catch(err){
+        toast.error(err.response.data.message)
+      }
+      setLikeStatus(true)
+    }
   return (
     <div className="bg-gray-100 min-h-screen py-12">
     <div className="max-w-6xl mx-auto px-6">
@@ -69,14 +105,23 @@ const ArtifactDetails = () => {
 
         {/* Like Button and Counter */}
         <div className="flex items-center justify-center space-x-4 mt-8">
-          <button
-            onClick={handleLike}
-            className="bg-sky-700 text-white py-2 px-6 rounded-lg shadow-md hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          {
+            likeStatus ? (
+              <button
+            onClick={()=>handleLike(artifact._id)}
+            className="bg-sky-700 text-white py-2 px-6 rounded-lg flex items-center gap-2 shadow-md hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
           >
-            Like
+           <AiFillLike></AiFillLike> Like
           </button>
+            ):(<button
+              onClick={()=>handleDisLike(artifact._id)}
+              className="bg-sky-700 text-white py-2 px-6 rounded-lg flex items-center gap-2 shadow-md hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-500"
+            >
+             <AiFillDislike></AiFillDislike> DisLike
+            </button>)
+          }
           <p className="text-lg font-semibold text-gray-700">
-            Likes: {likes}
+            Likes: 
           </p>
         </div>
       </div>

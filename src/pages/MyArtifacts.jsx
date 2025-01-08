@@ -10,6 +10,7 @@ const MyArtifacts = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(artifacts)
 
   const fetchArtifactsData = async () => {
     const { data } = await axios.get(
@@ -23,10 +24,7 @@ const MyArtifacts = () => {
     fetchArtifactsData();
   }, [user?.email]);
 
-  const handleUpdate = async (id) => {
-    try {
-    } catch (err) {}
-  };
+  
 
   const onClose = ()=>{
     setIsModalOpen(false)
@@ -84,7 +82,7 @@ const MyArtifacts = () => {
               >
                 Delete
               </button>
-              {isModalOpen && <UpdateArtifactsModal fetchArtifactsData={fetchArtifactsData} handleUpdate={handleUpdate} onClose={onClose}  artifact={artifact}></UpdateArtifactsModal>}
+              {isModalOpen && <UpdateArtifactsModal fetchArtifactsData={fetchArtifactsData}  onClose={onClose}  artifact={artifact}></UpdateArtifactsModal>}
             </div>
           </ArtifactCard>
         ))}
