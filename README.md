@@ -19,8 +19,12 @@ History Artifacts Tracker is a web application designed to explore and preserve 
 - **Frontend**: React.js (assumed based on project setup)  
 - **Deployment**: Netlify (Frontend) & Render/Heroku (Backend) 
 
-## Github Repo Link
+## Github Repo Link Client Side
 https://github.com/Saiful109710/asignment-11-history-artifacts-client
+
+## Github Repo Link Server Side
+
+https://github.com/Saiful109710/assignment-11-history-artifacts-server
 
 ## Website Live Link
 https://history-artifactsassignment-11.netlify.app/
